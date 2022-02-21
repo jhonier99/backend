@@ -32,7 +32,7 @@ app.get('/usuarios', (req, res) => {
         }
     });
 });
-
+//Añadir usuarios más validación para no repetir usuarios
 app.post("/add", (req, res) => {
     const sql = "INSERT INTO usuarios SET ?";
     const customerObj = {
@@ -61,32 +61,6 @@ app.post("/add", (req, res) => {
     }
 });
 
-// app.post('/add', (req, res) => {
-//     const Usuario = req.body.Usuario
-//     const sql2 = `SELECT * FRPM usuarios WHERE Uusario = '${Usuario}'`;
-//     connection.query(sql2, (error, result) => {
-//         if (result.length > 0) {
-//             const sql = 'INSERT INTO usuarios SET ?';
-//             const usuariosObj = {
-//                 Nombre: req.body.Nombre,
-//                 Usuario: req.body.Usuario,
-//                 Contrasena: req.body.Contrasena
-//             }
-//             connection.query(sql, usuariosObj, (error) => {
-//                 if (!error) {
-//                     res.send(true);
-//                 } else {
-//                     res.send(false)
-//                 }
-//             });
-//         } else {
-//             res.send();
-//         }
-
-//     });
-
-//     //res.send('Crear nuevo usuario');
-// });
 //login
 
 app.post('/login', (req, res) => {
@@ -112,4 +86,4 @@ connection.connect(error => {
     console.log('La base de datos está funcionando correctamente');
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`El servidor está corriendo en el puerto: ${PORT}`));
